@@ -1,0 +1,35 @@
+{
+  "name": "echodot",
+  "version": "1.0.0",
+  "description": "Echo dot chat bot server",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farisabdulraheem/Sinch-Interview.git"
+  },
+  "keywords": [
+    "echodot",
+    "chatbot"
+  ],
+  "author": "farisabdulraheem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farisabdulraheem/Sinch-Interview/issues"
+  },
+  "homepage": "https://github.com/farisabdulraheem/Sinch-Interview#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "gzip": "^0.1.0",
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
