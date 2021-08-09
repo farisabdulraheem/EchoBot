@@ -1,11 +1,50 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .rcw-widget-container {
+   
+    bottom: 10px !important;
+    display: flex;
+    flex-direction: column;
+   top:10px !important;
+    max-width: 350px !important;
+    max-height: 90% !important;
+    position: realtive !important;
+    right: 5%!important;
+    width: 90vw !important;
+    z-index: 9999;
+}
+  /* Styles */
+  }
+
+.rcw-widget-container {
+    bottom: 5% !important;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 20px 0;
+    max-width: 370px;
+    position: fixed;
+    right: 0;
+    width: 90vw;
+    z-index: 9999;
+}
+
+
 body {
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(108, 231, 231)); */
+  background-color:#0f3b46 /*this your primary color*/
 }
+
+.text-small {
+  font-size: 0.9rem !important;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
