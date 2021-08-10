@@ -12,11 +12,12 @@ class EchoBot extends Component {
     addResponseMessage(config().botStartMessage);
   }
 
+
   handleNewUserMessage = async (newMessage) => {
     try {
       let speech = new SpeechSynthesisUtterance();
       speech.lang = "en";
-      //console.log(`New message incoming! ${newMessage}`);
+
       // Now send the message throught the backend API
       var response = await callEchoBotApi(newMessage);
       addResponseMessage(response.data.botResponse);
@@ -32,14 +33,14 @@ class EchoBot extends Component {
   render() {
     return (
 
-    
-    
-    <Widget
-          handleNewUserMessage={this.handleNewUserMessage}  title="EchoBot" subtitle="" profileAvatar="/chatbot.png"
-        />
-  
-        
-    
+
+
+      <Widget
+        handleNewUserMessage={this.handleNewUserMessage} title="EchoBot" subtitle="" profileAvatar="/chatbot.png"
+      />
+
+
+
     );
   }
 }

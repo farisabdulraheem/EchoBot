@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3001;
-const host = process.env.host || "192.168.43.37";
+var config = require("./env/config");
+const port = config.port || process.env.PORT || 3001;
+const host = config.host || process.env.host || "localhost";
 const logger = require('./utils/logger');
 const compression = require('compression');
 const routes = require('./routes/echobot');
@@ -15,11 +16,11 @@ app.use(cors())
 
 app.use("/", routes);
 
-app.use(function(req, res, next) {
-  const allowedorigin=["http://localhost:3000","http://192.168.43.37:3000/"]
+app.use(function (req, res, next) {
+  var allowedorigin = ["http://${host}:${port}"]
   const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-  res.header("Access-Control-Allow-Origin",origin ); // update to match the domain you will make the request from
+  if (allowedorigin.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin); // update to match the domain you will make the request from
   }
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -50,3 +51,4 @@ app.listen(port, () => {
   logger.info(`Server started and running on http://${host}:${port}`)
 })
 
+module.exports = { app }
