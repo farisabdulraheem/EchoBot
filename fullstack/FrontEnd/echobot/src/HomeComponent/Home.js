@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import EchoBot from '../EchoBotComponent/EchoBot';
 
 class Home extends Component {
+
+
   render() {
     return (
-
 
       <div className="container">
         <div className="row ">
@@ -23,9 +24,6 @@ class Home extends Component {
         </div>
 
       </div>
-
-
-
 
     );
   }

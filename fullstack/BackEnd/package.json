@@ -4,7 +4,7 @@
   "description": "Echo dot chat bot server",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./unitTests/*.js",
+    "test": "mocha ./testcases/*.js",
     "start:dev": "nodemon index.js"
   },
   "repository": {

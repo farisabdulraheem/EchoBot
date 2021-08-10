@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { Widget, addResponseMessage, toggleWidget } from 'react-chat-widget';
 import { callEchoBotApi } from './EchoBotApi'
-
+import {withAlert} from 'react-alert';
 import 'react-chat-widget/lib/styles.css';
 import { config } from "../config/config";
 
 class EchoBot extends Component {
-
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      items: [],
+      errorMessage: ''
+    }
+     
+     
+  }
   componentDidMount() {
+  
     toggleWidget();
     addResponseMessage(config().botStartMessage);
   }
@@ -20,17 +30,26 @@ class EchoBot extends Component {
 
       // Now send the message throught the backend API
       var response = await callEchoBotApi(newMessage);
-      addResponseMessage(response.data.botResponse);
-
-      speech.text = response.data.botResponse;
-      window.speechSynthesis.speak(speech);
+      if (response.data && response.data.botResponse) {
+        addResponseMessage(response.data.botResponse);
+        speech.text = response.data.botResponse;
+        window.speechSynthesis.speak(speech);
+      }
 
     } catch (error) {
-      console.log(error)
+   
+      this.setState({errorMessage: "Server is facing some difficulty"});
+  
+     
     }
 
   };
   render() {
+
+    const alert = this.props.alert;
+    { if(this.state.errorMessage) 
+      alert.error( this.state.errorMessage)
+     }
     return (
 
 
@@ -38,7 +57,7 @@ class EchoBot extends Component {
       <Widget
         handleNewUserMessage={this.handleNewUserMessage} title="EchoBot" subtitle="" profileAvatar="/chatbot.png"
       />
-
+ 
 
 
     );
@@ -48,4 +67,4 @@ class EchoBot extends Component {
 
 
 
-export default EchoBot;
+export default withAlert()(EchoBot);
