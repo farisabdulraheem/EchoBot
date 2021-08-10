@@ -45,8 +45,8 @@ class EchoBot extends Component {
 
   };
   render() {
-
     const alert = this.props.alert;
+    // eslint-disable-next-line
     { if(this.state.errorMessage) 
       alert.error( this.state.errorMessage)
      }
